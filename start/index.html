@@ -5,33 +5,27 @@
   </body>
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <!-- babel -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    // JSX - 컴포넌트의 첫 글자는 반드시 대문자, 소문자이면 JSX가 HTML 태그라고 생각함
-    const Title = () => (
-      <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-        hello i'm a title
-      </h3>
-    );
+    let counter = 0;
 
-    const Button = () => (
-      <button
-        style={{ backgroundColor: "tomato" }}
-        onClick={() => console.log("click")}
-      >
-        Click Me
-      </button>
-    );
+    function countUp() {
+      counter += 1;
+      render();
+    }
 
-    // 이렇게 사용하려면 위의 Title과 Button을 함수로 만들어줘야함
-    const Container = (
+    function render() {
+      ReactDOM.render(<Container />, root);
+    }
+
+    const Container = () => (
       <div>
-        <Title /> <Button />
+        <h3>Total Count : {counter}</h3>
+        <button onClick={countUp}>Click Me</button>
       </div>
     );
 
-    ReactDOM.render(Container, root);
+    render();
   </script>
 </html>
