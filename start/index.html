@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- React - 감각적인 UI 만들도록 도와줌 -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <!-- ReactDOM - 모든 react element를 html body에 둘 수 있도록 도와줌 -->
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    const root = document.getElementById("root");
+    const h3 = React.createElement(
+      "h3",
+      { onMouseEntser: () => console.log("mouse enter") },
+      "Here is span"
+    );
+    const btn = React.createElement(
+      "button",
+      {
+        style: { backgroudColor: "tomato" },
+        onClick: () => console.log("click"),
+      },
+      "Click Me"
+    );
+    const container = React.createElement("div", null, [h3, btn]);
+    ReactDOM.render(container, root);
+    // ReactDOM 18버전
+    // ReactDOM.createRoot(root).render(span);
+  </script>
+</html>
